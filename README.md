@@ -32,7 +32,7 @@ sudo make install
 # Then check if your criu works well
 sudo criu check
 sudo criu check --all
-# You will see 'looks goos'
+# You will see 'looks good'
 ```
 ### 3. Test your Docker CRIU
 ```
