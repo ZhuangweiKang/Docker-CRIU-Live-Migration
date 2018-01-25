@@ -9,7 +9,7 @@ wget https://download.docker.com/linux/ubuntu/dists/xenial/pool/stable/amd64/doc
 sudo dpkg -i /path/to/package.deb
 # Daemon environment will run automaticly
 # Run docker without sudo
-sudo group add docker
+sudo groupadd docker
 sudo usermod -aG docker $USER
 # docker checkpoint is an experimental feature, so you should enable docker experimental feature
 sudo nano /etc/docker/daemon.json
