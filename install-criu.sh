@@ -1,13 +1,11 @@
 #!/bin/bash
-exec cd ~/
-exec sudo mkdir Docker
-exec cd Docker
-exec wget https://download.docker.com/linux/ubuntu/dists/xenial/pool/stable/amd64/docker-ce_17.03.0~ce-0~ubuntu-xenial_amd64.deb
-exec sudo dpkg -i docker-ce_17.03.0~ce-0~ubuntu-xenial_amd64.deb
-exec sudo groupadd docker
-exec which docker
-exec sudo usermod -aG docker $USER
-echo "{\"experimental\":true}" > /etc/docker/daemon.json
-exec cat /etc/docker/daemon.json
-exec sudo systemctl daemon-reload
-exec sudo systemctl restart docker
+exec sudo apt-get update && sudo apt-get install -y protobuf-c-compiler libprotobuf-c0-dev protobuf-compiler libprotobuf-dev:amd64 gcc build-essential bsdmainutils python git-core asciidoc make htop git curl supervisor cgroup-lite libapparmor-dev libseccomp-dev libprotobuf-dev libprotobuf-c0-dev protobuf-c-compiler protobuf-compiler python-protobuf libnl-3-dev libcap-dev libaio-dev apparmor libnet-dev
+exec sudo mkdir ~/Documents/criu
+exec cd criu
+exec git clone https://github.com/xemul/criu criu
+exec cd criu
+exec sudo make clean
+exec sudo make
+exec sudo make install
+exec sudo criu check
+exec sudo criu check --all
