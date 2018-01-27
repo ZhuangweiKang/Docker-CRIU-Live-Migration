@@ -120,7 +120,7 @@ $ docker run -d --name looper2 --security-opt seccomp:unconfined busybox \
          /bin/sh -c 'i=0; while true; do echo $i; i=$(expr $i + 1); sleep 1; done'
 
 # wait a few seconds to give the container an opportunity to print a few lines, then
-$ docker checkpoint create --checkpoint-dir=/nfs/home/cc/ looper2 checkpoint2
+$ docker checkpoint create --checkpoint-dir=/home/ubuntu/Container-Checkpoints/ looper2 checkpoint2
 
 # check your container & print log file
 $ docker ps
@@ -131,7 +131,7 @@ $ docker logs looper2
 $ docker create --name looper-clone --security-opt seccomp:unconfined busybox \
          /bin/sh -c 'i=0; while true; do echo $i; i=$(expr $i + 1); sleep 1; done'
 
-$ docker start --checkpoint-dir=/home/cc/ --checkpoint=checkpoint2 looper-clone
+$ docker start --checkpoint-dir=/nfs/home/ubuntu/Container-Checkpoints/ --checkpoint=checkpoint2 looper-clone
 
 # check your container
 $ docekr ps
