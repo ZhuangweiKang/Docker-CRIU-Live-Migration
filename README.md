@@ -43,7 +43,7 @@ $ sudo ufw status
 # If ufw is inactive, use the below command to enable ufw:
 $ sudo ufw enable
 # Make ufw allow incoming and outgoing:
-$ sudo ufw default deny incoming
+$ sudo ufw default allow incoming
 $ sudo ufw default allow outgoing
 # Make client server can access host server
 $ sudo ufw allow from 129.59.1.2 to any port nfs
