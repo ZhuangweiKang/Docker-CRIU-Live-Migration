@@ -1,13 +1,9 @@
 #!/bin/sh
-sudo su
-cd /home/ubuntu/
-apt-get update
-apt-get install wget
-wget https://download.docker.com/linux/ubuntu/dists/xenial/pool/stable/amd64/docker-ce_17.03.0~ce-0~ubuntu-xenial_amd64.deb
-dpkg -i docker-ce_17.03.0~ce-0~ubuntu-xenial_amd64.deb
-groupadd docker
-usermod -aG docker $USER
-systemctl restart docker
-echo "{\"experimental:\"true}" >> /etc/docker/daemon.json
-systemctl restart docker
-docker version
+sudo apt-get remove docker docker-engine docker.io
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+curl –fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce
