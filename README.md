@@ -134,6 +134,6 @@ $ docker create --name looper-clone --security-opt seccomp:unconfined busybox \
 $ docker start --checkpoint-dir=/nfs/home/ubuntu/Container-Checkpoints/ --checkpoint=checkpoint2 looper-clone
 
 # check your container
-$ docekr ps
+$ docker ps
 $ docker logs looper-clone
 ```
